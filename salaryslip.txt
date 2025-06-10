@@ -1,7 +1,7 @@
 
 -------------Employee Salary Slip-----------
 		ID           :10
-		Name         :abhijeet
+		Name         :Abhijeet
 		Basic Salary :50000.00
 		DA           :10.00
 		HRA          :15.00

@@ -1,27 +1,43 @@
 #include<stdio.h>
 int main()
 {
-float bs,da,hra,tax;
-float totalsalary;
+    float bs,totalSalary,da,hra,tax;
+    int eid;
+    char ename[100];
+    FILE * fp;
 
- 
+    fp = fopen("salarySlip.txt","w");
 
-printf("enter the basic salary :");
-scanf("%f",&bs);
+    printf("Enter Employee Details : ");
+    printf("\nID : ");
+    scanf("%d",&eid);
+        
+    printf("Name : ");
+    scanf("%s",&ename);
+    printf("Enter Basic Salary : ");
+    scanf("%f",&bs);
 
-printf("enter the daily allowance :");
-scanf("%f",&da);
+    printf("DA : ");
+    scanf("%f",&da);
 
-printf("enter the house rent allowance :");
-scanf("%f",&hra);
+    printf("HRA : ");
+    scanf("%f",&hra);
 
-printf("enter the tax :");
-scanf("%f",&tax);
+    printf("TAX : ");
+    scanf("%f",&tax);
 
+    totalSalary=bs+((bs*(da+hra-tax))/100);
+    printf("Total Salary : %.2f",totalSalary);
 
-totalsalary=bs+((bs*(da+hra-tax))/100);
-printf("Total Salary : %.2f",totalsalary);
+    fprintf(fp,"\n-------------Employee Salary Slip-----------");
+    fprintf(fp,"\n\t\tID           :%d",eid);
+    fprintf(fp,"\n\t\tName         :%s",ename);
+    fprintf(fp,"\n\t\tBasic Salary :%.2f",bs);
+    fprintf(fp,"\n\t\tDA           :%.2f",da);
+    fprintf(fp,"\n\t\tHRA          :%.2f",hra);
+    fprintf(fp,"\n\t\tTAX          :%.2f",tax);
+    fprintf(fp,"\n\t\tTotal Salary :%.2f",totalSalary);
 
-return 0;
+   return 0;
 
 }
