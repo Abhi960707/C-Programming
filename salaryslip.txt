@@ -1,9 +1,9 @@
 
-------------------Employee salary slip--------------------
-		ID                           :4201216
-		Name                         :6422176
-		 Basic salary                :0
-		DA   (%)                        :0
-		HRA    (%)                        :0
-		TAX     (%)                       :0
-		TOTAL SALARY                  :0
+-------------Employee Salary Slip-----------
+		ID           :10
+		Name         :abhijeet
+		Basic Salary :50000.00
+		DA           :10.00
+		HRA          :15.00
+		TAX          :5.00
+		Total Salary :60000.00
