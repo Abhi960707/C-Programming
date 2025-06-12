@@ -9,7 +9,10 @@ if (a>b)
 b=a;
 if(c>b)
 b=c;
+
 printf("max is %d",b);
+
+
 
 return 0;
 
