@@ -46,7 +46,7 @@ grade ='C';
 else if(avg<=70 && avg>=50)
 grade ='D';
 
-else if(avg<=50 && avg>=3)
+else if(avg<=50 && avg>=30)
 grade ='E';
 
 else grade='f';
