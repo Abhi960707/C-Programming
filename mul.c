@@ -6,4 +6,5 @@ int main()
     printf("enter 2 number");
     scanf("%d%d", &a,&b);
     printf("multiplication is:%d",(a*b));
+    return 0;
 }
