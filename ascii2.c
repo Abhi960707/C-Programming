@@ -5,14 +5,14 @@ int main()
     printf("enter anything");
     scanf("%c",&ch);
 
-    if((ch>=60 && ch<=90)||(ch>=97 && ch<=122))
+    if((ch>='A' && ch<='Z')||(ch>='a' && ch<='z'))    
     printf("Alphabet :");
 
-    if((ch>='A' && ch<='Z')||(ch>='a' && ch<='z'))
-    printf("digit :");
-
     else if(ch>'0' &&ch<='9')
-    printf("special symbol :");
+    printf("Digit :");
+    
+    else
+    printf("Special symbol :");
 
     return 0;
 
