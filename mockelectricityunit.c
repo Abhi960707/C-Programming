@@ -1,0 +1,41 @@
+#include<stdio.h>
+int main()
+{
+    int unit,amt=0;
+    if(printf("enter unit :" ))
+    scanf("%d",&unit);
+    if(unit>=100)
+    {
+        amt=amt+(100*8);
+        unit=unit-100;
+        if(unit>=100)
+        {
+             amt=amt+(100*10);
+        unit=unit-100;
+        if(unit>=100)
+
+        {
+         amt=amt+(100*12);
+        unit=unit-100;
+        if(unit>=100)
+        {
+            amt=amt+(100*15);
+        unit=unit-100;
+        if(unit>=0)
+        amt=amt+(unit*17);
+
+        }
+        else amt=amt+(unit*15)
+    }
+    else amt=amt+(unit*12)
+}
+else amt=amt+(unit*10)
+    }
+    else amt=amt+(unit*8)
+    if(printf("lightbill=%d",amt))
+
+
+return 0;
+
+
+    }
