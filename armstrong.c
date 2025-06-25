@@ -2,7 +2,8 @@
 #include<math.h>
 int main()
 {
-    int n,rem,cnt=0,result=0,temp;
+    int n,rem,cnt=0,temp;
+    float result=0;
     printf("enter a number : ");
     scanf("%d",&n);
 
