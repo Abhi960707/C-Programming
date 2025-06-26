@@ -2,7 +2,7 @@
 int main()
 {
     int n,i,cnt=0;
-    printf("enter a nmmbe ");
+    printf("enter a number :  ");
     scanf("%d",&n);
 
    cnt=0;
