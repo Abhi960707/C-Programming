@@ -15,18 +15,24 @@ Node *createNode(int data)
     return newNode;
 }
 
-void append(Node **r, int data)
+void append(Node **head, int data)
 {
-    Node *newNode = createNode(data);
-    if ((*r) = NULL)
-        (*r) = newNode;
+    Node *newnode = (Node *)malloc(sizeof(Node));
+
+    newnode->data = data;
+    newnode->next = NULL;
+
+    if (*head == NULL)
+        (*head) = newnode;
+
     else
     {
-        Node *temp = (*r);
+        Node *temp = (*head);
+
         while (temp->next != NULL)
             temp = temp->next;
-        temp->next = newNode;
-        newNode->pre = temp;
+
+        temp->next = newnode;
     }
 }
 
@@ -35,7 +41,7 @@ void display(Node *head)
     while (head != NULL)
 
     {
-        printf("%d\n", head->data);
+        printf("\n%d", head->data);
         head = head->next;
     }
 }
@@ -62,6 +68,32 @@ int Search(Node *head, int key)
     }
     return 0;
 }
+void insertFirst(Node **r, int data)
+{
+    Node *newNode = createNode(data);
+    if ((*r) == NULL)
+        (*r) = newNode;
+    else
+    {
+        newNode->next = (*r);
+        (*r)->pre = newNode;
+        (*r) = newNode;
+    }
+}
+
+void deleteFirst(Node **r)
+{
+    if((*r)->next == NULL)
+    (*r) = NULL;
+    else
+    {
+        Node *del = (*r);
+        (*r) = (*r)->next;
+        del->next = (*r)->pre = NULL;
+        free(del);
+    }
+    
+}
 
 int main()
 {
@@ -74,20 +106,46 @@ int main()
         switch (ch)
         {
         case 1:
-            printf("\nEnter data : ");
+            printf("\nEnter a data : ");
             scanf("%d", &data);
-            Append(&head, data);
+            append(&head, data);
             break;
 
         case 2:
-            Display(head);
+
+            display(head);
             break;
 
-        case 10:
+        case 3:
+            printf("\nCount is %d \n", Count(head));
+            break;
+
+        case 4:
+            printf("\n Enter key to search :");
+            scanf("%d", &key);
+            if (Search(head, key))
+                printf("\nData Found");
+            else
+
+                printf("\n Data not found");
+            break;
+
+        case 5:
+            printf("enter a data : ");
+            scanf("%d", &data);
+            insertFirst(&head, data);
+            break;
+
+            case 6:
+            deleteFirst(&head);
+            break;
+
+        case 11:
             return 0;
+            break;
         default:
-            printf("INVALID CHOICE !")
+            printf("\nINVALID CHOICE ");
+            break;
         }
     }
-    return 0;
 }
