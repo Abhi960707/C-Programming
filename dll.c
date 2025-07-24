@@ -123,6 +123,49 @@ void insertInBetween(Node *head, int data, int pos)
     temp->next = newNode;
 }
 
+void DeleteByValue(Node *head, int data)
+{
+    Node *temp = head;
+    while (temp->next != NULL)
+    {
+        if (temp->next->data == data)
+        {
+            Node *del = temp->next;
+            temp->next = del->next;
+            if (del->next != NULL)
+                del->next->pre = temp;
+            del->next = del->pre = NULL;
+            printf("\n4");
+            free(del);
+            return;
+        }
+        temp = temp->next;
+    }
+}
+
+void DeleteByPosition(Node **head, int pos)
+{
+    if (*head == NULL || pos <= 0 || pos > Count(*head))
+    {
+        printf("invalid position");
+        return;
+    }
+
+    Node *temp = *head;
+    if (pos == 1)
+
+    {
+        *head = temp->next;
+        free(temp);
+        return;
+    }
+    for (int i = 1; temp != NULL && i < pos - 1; i++)
+        temp = temp->next;
+    Node *del = temp->next;
+    temp->next = del->next;
+    free(del);
+}
+
 int main()
 {
     int data, ch, key, pos;
@@ -182,9 +225,29 @@ int main()
             else if (pos == Count(head) + 1)
                 append(&head, data);
             else if (pos > 1 && pos <= Count(head))
-                insertInBetween(head,data,pos);
+                insertInBetween(head, data, pos);
             else
                 printf("\n Invalid positon !!!!");
+            break;
+
+            // case 9:
+            //  printf("enter a data :");
+            //             scanf("%d", &data);
+            //             if()
+
+        case 9:
+            printf("\n enter a number ");
+            scanf("%d", &data);
+            if (head->data == data)
+                deleteFirst(&head);
+            else
+                DeleteByValue(head, data);
+            break;
+
+        case 10:
+            printf("Enter delete position :");
+            scanf("%d", &pos);
+            DeleteByPosition(&head, pos);
             break;
 
         case 11:

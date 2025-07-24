@@ -206,8 +206,6 @@ int main()
             deleteLast(&head);
             break;
 
-    
-
         case 9:
             printf("\n enter a number ");
             scanf("%d", &data);
