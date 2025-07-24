@@ -83,8 +83,8 @@ void insertFirst(Node **r, int data)
 
 void deleteFirst(Node **r)
 {
-    if((*r)->next == NULL)
-    (*r) = NULL;
+    if ((*r)->next == NULL)
+        (*r) = NULL;
     else
     {
         Node *del = (*r);
@@ -92,7 +92,35 @@ void deleteFirst(Node **r)
         del->next = (*r)->pre = NULL;
         free(del);
     }
-    
+}
+
+void deleteLast(Node **r)
+{
+    if ((*r)->next == NULL)
+        (*r) = NULL;
+    else
+    {
+        Node *temp = (*r);
+        while (temp->next->next != NULL)
+            temp = temp->next;
+        temp->next->pre = NULL;
+        temp->next = NULL;
+    }
+}
+
+void insertInBetween(Node *head, int data, int pos)
+{
+    Node *newNode = createNode(data);
+    int i;
+    Node *temp = head;
+
+    for (i = 2; i < pos; i++)
+        temp = temp->next;
+
+    newNode->next = temp->next;
+    temp->next->pre = newNode;
+    newNode->pre = temp;
+    temp->next = newNode;
 }
 
 int main()
@@ -136,8 +164,27 @@ int main()
             insertFirst(&head, data);
             break;
 
-            case 6:
+        case 6:
             deleteFirst(&head);
+            break;
+
+        case 7:
+            deleteLast(&head);
+            break;
+
+        case 8:
+            printf("\nenter a position  :");
+            scanf("%d", &pos);
+            printf("enter a data :");
+            scanf("%d", &data);
+            if (pos == 1)
+                insertFirst(&head, data);
+            else if (pos == Count(head) + 1)
+                append(&head, data);
+            else if (pos > 1 && pos <= Count(head))
+                insertInBetween(head,data,pos);
+            else
+                printf("\n Invalid positon !!!!");
             break;
 
         case 11:

@@ -206,20 +206,7 @@ int main()
             deleteLast(&head);
             break;
 
-        case 8:
-            printf("\nenter position to insert :");
-            scanf("%d", &pos);
-            printf("enter a data :");
-            scanf("%d", &data);
-            if (pos == 1)
-                insertFirst(&head, data);
-            else if (pos == Count(head) + 1)
-                Append(&head, data);
-            else if (pos > 1 && pos <= Count(head))
-                InsertInBetween(head, pos, data);
-            else
-                printf("\n Invalid positon");
-            break;
+    
 
         case 9:
             printf("\n enter a number ");
